@@ -1,0 +1,38 @@
+
+<html lang="ja">
+  <head>
+    <title>Copy__writing</title><meta charset="UTF-8">
+
+
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="../../jquery.xdomainajax.js"></script>
+    <script>
+      uri = 'http://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1082053835';
+	
+
+        $.get(uri, (data) => {
+          $('#app').prepend(data.responseText.match(/title>(.*)<\/title>/)[1]);
+        });
+		
+ 	$.get(uri, (data) => {
+          $('#app2').text(data.responseText); 
+        });
+
+ 
+
+
+
+    </script>
+  </head>
+  <body>
+ <div id="app"></div><br>
+
+    <h1>テキスト生データ</h1> <br><div id="app2"></div> 
+
+
+    
+    
+    
+</body>
+</html>
