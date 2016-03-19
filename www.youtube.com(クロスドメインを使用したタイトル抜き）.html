@@ -61,7 +61,7 @@ function main(id, width, height) {
 
 
    $.get(html3, (data) => {
-          $('#text').prepend(data.responseText.match(/title>(.*)<\/title>/)[1]);
+          $('#text').prepend(data.responseText.match(/title>(.*)<\/title>/)[1]);           //text内にURLが入っているので、そこからタイトル内の文字を抽出する  
         });
 
   
