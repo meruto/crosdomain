@@ -1,0 +1,81 @@
+# <html lang="ja">
+  <head>
+    <title>Copy__writing</title>
+<meta charset="UTF-8">
+
+  </head>
+  <body>
+    <div id="app"></div><br>
+
+    
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="../../jquery.xdomainajax.js"></script>
+    <script>
+      uri = 'https://twitter.com/tu_ma';
+	  var getDate = () => {
+        now = new Date();
+        year = "" + now.getFullYear();
+        month = "" + (now.getMonth() + 1); if (month.length == 1) { month = "0" + month; }
+        day = "" + now.getDate(); if (day.length == 1) { day = "0" + day; }
+        hour = "" + now.getHours(); if (hour.length == 1) { hour = "0" + hour; }
+        minute = "" + now.getMinutes(); if (minute.length == 1) { minute = "0" + minute; }
+        second = "" + now.getSeconds(); if (second.length == 1) { second = "0" + second; }
+        return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+      }
+
+for(var i=0; i<5; i++){
+
+        $.get(uri, (data) => {
+          $('#app').prepend(getDate() + '  : ' + data.responseText.match(/title="([\d,]+) Followers"/)[0] + ' Forrows<br>');
+        });
+		
+}
+
+
+      
+    </script>
+    <p>結果領域</p>
+<script>
+function add_square(){
+var tag=document.getElementById("hoge");
+v=tag.value;
+v=v.replace(/^(.+?)$/mg,"■$1■");
+tag.value=v;
+}
+</script>
+<textarea id="hoge">
+aaaa
+bbbb
+cccc
+    <div id="hh_10"></div>
+</textarea>
+<input type="button" onclick="add_square()" value="add square">
+
+
+<h1>サンプル - 別ドメインの外部URLからidやclassなど特定の箇所を抜き出しサイトに表示する方法</h1> 
+ <h1>container</h1><div id="container"></div> 
+<h1>header</h1> <div id="header"></div> 
+<h1>stock</h1> <div id="stock"></div> 
+<h1>テキスト生データ</h1> <div id="hh_10"></div> 
+
+<script type=text/javascript> 
+$(function() { 
+$.ajax({ 
+url: 'http://www.scenicbyway.jp/sv/jp/?graph', 
+type: 'GET', 
+success: function(data) { 
+$('#container').html(data.responseText); 
+$table = $('table', $('#container')); 
+$('#header').html($table.parent().prev().html()); 
+$('#stock').html($table.parent().html()); 
+$('#hh_10').text(data.responseText); 
+} 
+}); 
+});  
+</script>  
+    
+    
+    
+    
+</body>
+</html>
